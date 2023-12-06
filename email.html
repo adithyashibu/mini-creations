@@ -1,0 +1,108 @@
+<html>
+<head>
+<title>email</title>
+<script>
+function validateform()
+{
+var fname=document.mailform.fname.value; 
+var lname=document.mailform.lname.value; 
+var mail=document.mailform.mailid.value;
+var crpassword=document.mailform.crpassword.value;
+var cnpassword=document.mailform.cnpassword.value;
+var mobile=document.mailform.mobile.value;
+if (fname==null || fname=="")
+ {
+alert("First Name can't be blank"); 
+document.mailform.fname.focus() ;
+return false;
+ }
+else if (lname==null || lname=="")
+ {
+alert("Last Name can't be blank"); 
+return false;
+ }
+else if(mail==null || mail=="")
+ {
+alert(" username can't be blank"); 
+return false;
+ }
+else
+ {
+ atpos = mail.indexOf("@"); 
+ dotpos = mail.lastIndexOf(".");
+ 
+ if (atpos < 1 || ( dotpos - atpos < 2 ))
+ {
+    alert("Please enter correct email ID"); 
+ return false;
+ }
+ }
+if(crpassword==null || crpassword=="")
+ { 
+ alert(" password can't be blank");
+return false;
+ }
+else if(cnpassword==null || cnpassword=="")
+{ 
+alert(" confirm password can't be blank"); 
+return false;
+ }
+else if(crpassword!=cnpassword)
+{
+alert("password must be same!");
+return false;
+ }
+if(mobile==null || mobile=="")
+ {
+ alert(" Mobile number can't be blank"); 
+ return false;
+ }
+else if (isNaN(mobile))
+{
+alert("Enter Numeric valueonly"); 
+return false;
+ }
+else if (mobile.length!=10)
+ {
+alert("Mobile number must be 10 digits"); 
+return false;
+ }
+} 
+</script>
+</head>
+<body>
+<table border="1">
+<tr align="center" >
+<td align="center"> <h3> Email Registration form</h3> </td>
+</tr>
+<form name="mailform" method="post" 
+onsubmit="return validateform()">
+<tr> 
+ <td align="center">First Name: <input type="text" name="fname"><br/></td>
+</tr>
+<tr>
+<td align="center">Last Name: <input type="text" name="lname"><br/></td>
+</tr>
+
+<tr>
+<td align="center">Choose your user name:<input type="text" 
+name="mailid"><br/> </td>
+</tr>
+<tr>
+<td align="center"> Create a Password: <input type="password" 
+name="crpassword"><br/></td>
+</tr>
+<tr>
+<td align="center"> confirm Password: <input type="password" 
+name="cnpassword"><br/></td>
+</tr>
+<tr>
+<td align="center">Mobile number: <input type="text" name="mobile"><br/> 
+</td>
+</tr>
+<tr>
+<td align="center"><input type="submit" value="register"> </td>
+</tr>
+</form>
+</body>
+</html>
